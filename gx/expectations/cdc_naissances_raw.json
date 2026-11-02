@@ -1,0 +1,121 @@
+{
+  "expectations": [
+    {
+      "id": "d9355f91-feea-4c2a-939d-8861b271fbc4",
+      "kwargs": {
+        "column": "zone_code"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "2a9577b8-1f79-4b6b-91df-b526795f38e3",
+      "kwargs": {
+        "column": "annee"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "ae786d23-7597-44f0-92c4-c3029469243c",
+      "kwargs": {
+        "column": "tranche_age_native"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "91c07149-4ebb-4ba0-814d-6ea9fd5df1c0",
+      "kwargs": {
+        "column": "nb_naissances"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "920025ff-fc8e-4bcf-807e-79447727f4da",
+      "kwargs": {
+        "column": "zone_type",
+        "value_set": [
+          "pays"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "c790a3db-7097-455c-8aab-b55ba4ff4568",
+      "kwargs": {
+        "column": "annee",
+        "max_value": 2024.0,
+        "min_value": 1995.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "0466b9a6-4502-4f54-b25f-d7e82a4fb777",
+      "kwargs": {
+        "column": "tranche_age_native",
+        "value_set": [
+          "Under 15 years",
+          "15-19 years",
+          "20-24 years",
+          "25-29 years",
+          "30-34 years",
+          "35-39 years",
+          "40-44 years",
+          "45-49 years",
+          "50 years and over"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "94c27e6f-7364-418c-b073-3dfb60fd8792",
+      "kwargs": {
+        "column": "nb_naissances",
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "f9661fce-4a28-4f29-ba6d-c811b6e9e362",
+      "kwargs": {
+        "column_list": [
+          "annee",
+          "tranche_age_native"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_compound_columns_to_be_unique"
+    },
+    {
+      "id": "665e8403-b95d-4189-8693-69313f1fef23",
+      "kwargs": {
+        "max_value": 270,
+        "min_value": 268
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_table_row_count_to_be_between"
+    }
+  ],
+  "id": "d3fb303e-4703-421c-aaa0-27958decabd9",
+  "meta": {
+    "great_expectations_version": "1.24.1"
+  },
+  "name": "cdc_naissances_raw",
+  "notes": null
+}

@@ -1,0 +1,10 @@
+naissances_tardives:
+  target: dev
+  outputs:
+    dev:
+      type: bigquery
+      method: oauth
+      project: "{{ env_var('GCP_PROJECT') }}"
+      dataset: naissances_dbt
+      location: EU
+      threads: 4

@@ -1,0 +1,6 @@
+dbt-bigquery
+great-expectations
+pandas
+pyarrow
+google-cloud-bigquery
+streamlit

@@ -1,0 +1,71 @@
+version: 2
+
+sources:
+  - name: naissances_raw
+    description: "Données brutes chargées dans BigQuery, avant toute transformation."
+    schema: naissances_raw
+    tables:
+      - name: cdc_naissances_age_annee
+        description: >
+          Naissances vivantes aux États-Unis par année et tranche d'âge de la mère
+          (CDC WONDER, bases 1995-2002, 2003-2006 et 2007-2024, consolidées par
+          scripts/01_consolider_cdc.py). Grain : année x tranche d'âge native.
+        columns:
+          - name: zone_code
+            description: "Code de la zone géographique (US)."
+            data_tests:
+              - not_null
+          - name: zone_type
+            description: "Type de zone (pays)."
+            data_tests:
+              - not_null
+              - accepted_values:
+                  values: ["pays"]
+          - name: annee
+            description: "Année de naissance."
+            data_tests:
+              - not_null
+          - name: tranche_age_native
+            description: "Tranche d'âge de la mère telle que fournie par le CDC (5 ans)."
+            data_tests:
+              - not_null
+              - accepted_values:
+                  values:
+                    - "Under 15 years"
+                    - "15-19 years"
+                    - "20-24 years"
+                    - "25-29 years"
+                    - "30-34 years"
+                    - "35-39 years"
+                    - "40-44 years"
+                    - "45-49 years"
+                    - "50 years and over"
+          - name: source_base
+            description: "Fichier WONDER d'origine (traçabilité)."
+          - name: nb_naissances
+            description: "Nombre de naissances vivantes (somme des cellules WONDER)."
+            data_tests:
+              - not_null
+
+      - name: cdc_naissances_age_education_annee
+        description: >
+          Naissances vivantes aux États-Unis par année, tranche d'âge native et niveau d'éducation natif
+          de la mère (CDC WONDER, consolidées par scripts/03_consolider_education_cdc.py).
+          Les catégories d'éducation diffèrent selon le certificat de naissance (1989 ou 2003).
+        columns:
+          - name: annee
+            description: "Année de naissance."
+            data_tests:
+              - not_null
+          - name: tranche_age_native
+            description: "Tranche d'âge native de la mère."
+            data_tests:
+              - not_null
+          - name: education_native
+            description: "Niveau d'éducation tel que fourni par le CDC (libellé natif)."
+            data_tests:
+              - not_null
+          - name: nb_naissances
+            description: "Nombre de naissances vivantes."
+            data_tests:
+              - not_null

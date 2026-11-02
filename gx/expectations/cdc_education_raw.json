@@ -1,0 +1,148 @@
+{
+  "expectations": [
+    {
+      "id": "08d76f1a-459e-4188-930d-3dafdebf87a3",
+      "kwargs": {
+        "column": "zone_code"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "3bd79807-6a51-4ffc-a77d-33cbd5fe9459",
+      "kwargs": {
+        "column": "annee"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "7253e7b5-03dc-4213-bdce-07685f89da44",
+      "kwargs": {
+        "column": "tranche_age_native"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "4acf90e8-5f77-4af6-b1bf-b25af694d733",
+      "kwargs": {
+        "column": "education_native"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "cd7d4988-685f-40a5-b38c-cf9bfdf56f86",
+      "kwargs": {
+        "column": "nb_naissances"
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_not_be_null"
+    },
+    {
+      "id": "ab967bd5-bd2b-48a5-bd32-c560251bfef3",
+      "kwargs": {
+        "column": "zone_type",
+        "value_set": [
+          "pays"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "ff004c97-d43b-4d91-ad9e-7b615cd3e6d3",
+      "kwargs": {
+        "column": "annee",
+        "max_value": 2024.0,
+        "min_value": 1995.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "872b957f-9b74-4779-b7b0-ca0328791363",
+      "kwargs": {
+        "column": "tranche_age_native",
+        "value_set": [
+          "Under 15 years",
+          "15-19 years",
+          "20-24 years",
+          "25-29 years",
+          "30-34 years",
+          "35-39 years",
+          "40-44 years",
+          "45-49 years",
+          "50 years and over"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "cf67e3d2-96dc-488c-a20a-d5f61ae767fc",
+      "kwargs": {
+        "column": "education_native",
+        "value_set": [
+          "0 -  8 years",
+          "9 - 11 years",
+          "12 years",
+          "13 - 15 years",
+          "16 years and over",
+          "Not stated/Not on certificate",
+          "Excluded",
+          "8th grade or less",
+          "9th through 12th grade with no diploma",
+          "High school graduate or GED completed",
+          "Some college credit, but not a degree",
+          "Associate degree (AA, AS)",
+          "Bachelor's degree (BA, AB, BS)",
+          "Master's degree (MA, MS, MEng, MEd, MSW, MBA)",
+          "Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",
+          "Unknown or Not Stated"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_in_set"
+    },
+    {
+      "id": "a1c1725d-42a1-47de-9be6-0bb60a037b05",
+      "kwargs": {
+        "column": "nb_naissances",
+        "min_value": 0.0
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_column_values_to_be_between"
+    },
+    {
+      "id": "5c8f92ad-c169-42a2-8069-d39488bd86da",
+      "kwargs": {
+        "column_list": [
+          "annee",
+          "tranche_age_native",
+          "education_native"
+        ]
+      },
+      "meta": {},
+      "severity": "critical",
+      "type": "expect_compound_columns_to_be_unique"
+    }
+  ],
+  "id": "9fc64619-c994-4062-8997-7914093e630e",
+  "meta": {
+    "great_expectations_version": "1.24.1"
+  },
+  "name": "cdc_education_raw",
+  "notes": null
+}

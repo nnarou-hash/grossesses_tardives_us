@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: int_cdc_naissances_harmonisees
+    description: "Naissances vivantes par année et tranche d'âge harmonisée (<35, 35-39, 40+)."
+    columns:
+      - name: tranche_age
+        description: "Tranche d'âge harmonisée. La valeur non_classe signale une tranche native non prévue."
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["<35", "35-39", "40+"]
+      - name: nb_naissances
+        description: "Somme des naissances des tranches natives regroupées."
+        data_tests:
+          - not_null
+      - name: nb_tranches_natives
+        description: "Nombre de tranches natives regroupées dans cette ligne."
+
+  - name: int_cdc_naissances_education_harmonisees
+    description: "Naissances par année, tranche d'âge harmonisée et groupe d'éducation harmonisé (avec statut de l'éducation)."
+    columns:
+      - name: tranche_age
+        description: "Tranche d'âge harmonisée."
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["<35", "35-39", "40+"]
+      - name: groupe_education
+        description: "Groupe d'éducation harmonisé (null si le niveau natif n'est pas dans le seed)."
+        data_tests:
+          - not_null
+      - name: statut_education
+        description: "exploitable, exclu ou non_declare."
+        data_tests:
+          - not_null
+      - name: nb_naissances
+        description: "Somme des naissances."
+        data_tests:
+          - not_null

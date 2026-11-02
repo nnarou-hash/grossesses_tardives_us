@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "337e2a1c-6fac-4e86-b6c8-925122a97f23",
+      "name": "cdc_education"
+    },
+    "batch_definition": {
+      "id": "4cb5c389-0b6f-40db-a07e-7fdc1299887c",
+      "name": "table_complete"
+    },
+    "datasource": {
+      "id": "40274cbc-7986-4e8c-9a7b-bfc6e5923be4",
+      "name": "cdc_pandas"
+    }
+  },
+  "id": "18b4ed72-835c-49ea-9923-b1ff4851c5c1",
+  "name": "cdc_education_validation",
+  "suite": {
+    "id": "9fc64619-c994-4062-8997-7914093e630e",
+    "name": "cdc_education_raw"
+  }
+}

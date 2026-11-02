@@ -1,0 +1,122 @@
+version: 2
+
+models:
+  - name: mart_naissances_par_tranche
+    description: "Table finale : naissances vivantes par année et tranche d'âge harmonisée, avec la part de chaque tranche. Voir docs/03_dictionnaire_donnees.md."
+    columns:
+      - name: annee
+        description: "Année de naissance."
+        data_tests:
+          - not_null
+      - name: tranche_age
+        description: "Tranche d'âge harmonisée."
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["<35", "35-39", "40+"]
+      - name: nb_naissances
+        description: "Naissances vivantes."
+        data_tests:
+          - not_null
+      - name: part_pct
+        description: "Part de la tranche dans les naissances de l'année (%)."
+      - name: concept_age
+        description: "Concept d'âge de la source (revolu pour le CDC)."
+      - name: donnee_incomplete
+        description: "Vrai si moins de 9 tranches natives sont présentes pour l'année (L7)."
+
+  - name: mart_naissances_tardives_indicateurs
+    description: "Indicateurs annuels : part des naissances à 35+ et 40+ ans."
+    columns:
+      - name: annee
+        description: "Année de naissance."
+        data_tests:
+          - not_null
+      - name: part_35_plus_pct
+        description: "Part des naissances dont la mère a 35 ans ou plus (%)."
+        data_tests:
+          - not_null
+      - name: part_40_plus_pct
+        description: "Part des naissances dont la mère a 40 ans ou plus (%)."
+        data_tests:
+          - not_null
+
+  - name: mart_naissances_tranches_natives
+    description: "Répartition des naissances par tranche d'âge native (9 tranches de 5 ans), avec la part de chaque tranche."
+    columns:
+      - name: annee
+        description: "Année de naissance."
+        data_tests:
+          - not_null
+      - name: tranche_age_native
+        description: "Tranche d'âge native CDC."
+        data_tests:
+          - not_null
+      - name: ordre_tranche
+        description: "Ordre d'affichage (1 à 9)."
+        data_tests:
+          - not_null
+      - name: nb_naissances
+        description: "Naissances vivantes."
+        data_tests:
+          - not_null
+      - name: part_pct
+        description: "Part de la tranche dans les naissances de l'année (%)."
+      - name: donnee_incomplete
+        description: "Vrai si une tranche native manque pour l'année (L7)."
+
+  - name: mart_education_couverture
+    description: "Part des naissances dont l'éducation de la mère est exploitable, par année. Justifie les fenêtres d'analyse (L9)."
+    columns:
+      - name: annee
+        description: "Année de naissance."
+        data_tests:
+          - not_null
+      - name: couverture_pct
+        description: "Part des naissances avec une éducation exploitable (%)."
+        data_tests:
+          - not_null
+      - name: fenetre_analyse
+        description: "Fenêtre d'analyse (1995-2002, 2016-2024) ou hors_fenetre."
+        data_tests:
+          - not_null
+
+  - name: mart_education_par_annee
+    description: "Part des naissances à 35+ par groupe d'éducation et par année, sur les fenêtres à couverture complète."
+    columns:
+      - name: annee
+        description: "Année de naissance."
+        data_tests:
+          - not_null
+      - name: groupe_education
+        description: "Groupe d'éducation harmonisé."
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["Moins du lycée", "Lycée", "Études supérieures sans licence", "Licence ou plus"]
+      - name: part_35_plus_pct
+        description: "Part de naissances à 35+ dans le groupe (%)."
+        data_tests:
+          - not_null
+
+  - name: mart_education_par_fenetre
+    description: "Part des naissances à 35+ et poids de chaque groupe d'éducation, par fenêtre d'analyse. Niveaux non comparables entre fenêtres (L11)."
+    columns:
+      - name: fenetre_analyse
+        description: "Fenêtre d'analyse."
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["1995-2002", "2016-2024"]
+      - name: groupe_education
+        description: "Groupe d'éducation harmonisé."
+        data_tests:
+          - not_null
+      - name: part_35_plus_pct
+        description: "Part de naissances à 35+ dans le groupe (%)."
+        data_tests:
+          - not_null
+      - name: part_dans_toutes_meres_pct
+        description: "Poids du groupe parmi toutes les mères (%)."
+      - name: part_dans_meres_35_plus_pct
+        description: "Poids du groupe parmi les mères de 35+ (%)."

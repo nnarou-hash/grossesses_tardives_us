@@ -1,0 +1,28 @@
+name: naissances_tardives
+version: "1.0.0"
+config-version: 2
+profile: naissances_tardives
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages"]
+
+vars:
+  nb_tranches_natives_attendu: 9
+  # Éducation : fenêtres d'analyse à couverture complète (décision 2, docs/06_education_harmonisation.md)
+  fenetre_1_debut: 1995
+  fenetre_1_fin: 2002
+  fenetre_2_debut: 2016
+  fenetre_2_fin: 2024
+  seuil_couverture_education: 97
+
+models:
+  naissances_tardives:
+    staging:
+      +materialized: view
+    intermediate:
+      +materialized: view
+    marts:
+      +materialized: table

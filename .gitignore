@@ -1,0 +1,25 @@
+# Environnement Python
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Données : exports CDC WONDER et fichiers dérivés, non versionnés (voir README, section Reproduire)
+/data/
+
+# dbt
+dbt_naissances/target/
+dbt_naissances/logs/
+dbt_naissances/dbt_packages/
+
+# Secrets éventuels
+.env
+*service-account*.json
+*credentials*.json
+
+# Scripts d'installation utilisés pour générer le projet (non nécessaires au dépôt)
+/03_setup_dbt.sh
+/04_setup_dbt_marts.sh
+/05_maj_concept_age.py
+/06_setup_education.py
+/07_prepare_github.py

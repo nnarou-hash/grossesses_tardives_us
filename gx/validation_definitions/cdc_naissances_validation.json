@@ -1,0 +1,22 @@
+{
+  "data": {
+    "asset": {
+      "id": "8301696a-72f3-486f-a576-cf971d23aa12",
+      "name": "cdc_naissances"
+    },
+    "batch_definition": {
+      "id": "0555185f-a306-4d75-8076-355cd52dab77",
+      "name": "table_complete"
+    },
+    "datasource": {
+      "id": "40274cbc-7986-4e8c-9a7b-bfc6e5923be4",
+      "name": "cdc_pandas"
+    }
+  },
+  "id": "6ad73afe-a97a-4a4b-a240-73172611bad0",
+  "name": "cdc_naissances_validation",
+  "suite": {
+    "id": "d3fb303e-4703-421c-aaa0-27958decabd9",
+    "name": "cdc_naissances_raw"
+  }
+}

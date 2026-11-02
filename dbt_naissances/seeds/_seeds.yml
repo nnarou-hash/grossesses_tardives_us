@@ -1,0 +1,28 @@
+version: 2
+
+seeds:
+  - name: ref_education_harmonisation
+    description: >
+      Table de correspondance entre les niveaux d'éducation natifs du CDC (certificats de naissance
+      de 1989 et de 2003, non comparables selon le CDC) et 4 groupes harmonisés. Rapprochement
+      approximatif, documenté dans docs/06_education_harmonisation.md.
+    columns:
+      - name: education_native
+        description: "Libellé d'éducation tel que fourni par CDC WONDER."
+        data_tests:
+          - not_null
+          - unique
+      - name: certificat
+        description: "Certificat de naissance d'origine (cert_1989, cert_2003) ou non_applicable."
+      - name: groupe_education
+        description: "Groupe d'éducation harmonisé."
+        data_tests:
+          - not_null
+      - name: ordre_groupe
+        description: "Ordre d'affichage du groupe."
+      - name: statut_education
+        description: "exploitable, exclu (recodé Excluded par WONDER) ou non_declare."
+        data_tests:
+          - not_null
+          - accepted_values:
+              values: ["exploitable", "exclu", "non_declare"]

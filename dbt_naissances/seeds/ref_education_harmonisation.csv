@@ -1,0 +1,17 @@
+education_native,certificat,groupe_education,ordre_groupe,statut_education
+"0 -  8 years",cert_1989,Moins du lycée,1,exploitable
+"9 - 11 years",cert_1989,Moins du lycée,1,exploitable
+"12 years",cert_1989,Lycée,2,exploitable
+"13 - 15 years",cert_1989,Études supérieures sans licence,3,exploitable
+"16 years and over",cert_1989,Licence ou plus,4,exploitable
+"Not stated/Not on certificate",cert_1989,Non déclaré,10,non_declare
+"Excluded",non_applicable,Exclu,9,exclu
+"8th grade or less",cert_2003,Moins du lycée,1,exploitable
+"9th through 12th grade with no diploma",cert_2003,Moins du lycée,1,exploitable
+"High school graduate or GED completed",cert_2003,Lycée,2,exploitable
+"Some college credit, but not a degree",cert_2003,Études supérieures sans licence,3,exploitable
+"Associate degree (AA, AS)",cert_2003,Études supérieures sans licence,3,exploitable
+"Bachelor's degree (BA, AB, BS)",cert_2003,Licence ou plus,4,exploitable
+"Master's degree (MA, MS, MEng, MEd, MSW, MBA)",cert_2003,Licence ou plus,4,exploitable
+"Doctorate (PhD, EdD) or Professional Degree (MD, DDS, DVM, LLB, JD)",cert_2003,Licence ou plus,4,exploitable
+"Unknown or Not Stated",cert_2003,Non déclaré,10,non_declare
