@@ -82,6 +82,13 @@ st.caption(
     f"Part des naissances dont la mère a 35 ans ou plus, {int(premiere.annee)} à {int(derniere.annee)}. "
     "Source : CDC WONDER (National Vital Statistics System), naissances vivantes, niveau national."
 )
+st.info(
+    "**Sources :** CDC WONDER / National Vital Statistics System. Les exports nationaux par année, âge de la mère "
+    "et niveau d’éducation sont contrôlés avec Great Expectations, transformés avec dbt dans BigQuery, "
+    "puis lus depuis BigQuery ou depuis les exports CSV agrégés. "
+    "**Contenu :** évolution des parts 35+ et 40+, structure par âge, comparaison du niveau d’éducation (2016–2024), "
+    "couverture des données et limites méthodologiques."
+)
 
 if mode == "csv":
     fichier_date = CSV_DIR / "instantane.txt"
