@@ -5,6 +5,7 @@ Mode BigQuery si la variable GCP_PROJECT est définie, sinon mode CSV : instanta
 (voir scripts/05_exporter_dashboard_csv.py). DATA_SOURCE=csv ou DATA_SOURCE=bigquery force le choix.
 """
 import os
+import textwrap
 from pathlib import Path
 
 import altair as alt
@@ -239,17 +240,19 @@ with tab_qualite:
     with st.expander("Qualité des données et limites"):
         concept = ind["concept_age"].iloc[0]
         st.markdown(
+        textwrap.dedent(
             f"""
-    - **Concept d'âge** : `{concept}` (âge au dernier anniversaire, d'après la définition CDC/NCHS).
-    - **Contrôles** : données validées avant chargement (Great Expectations) puis après transformation (tests dbt).
-    - **Années avec données incomplètes** : {", ".join(str(a) for a in annees_incompletes) or "aucune"} (tranche 50 ans et plus absente, L7).
-    - **Rupture 2006-2007** : changement de base WONDER et des règles d'imputation de l'âge (L5, L8), non quantifié.
-    - **Cellules supprimées** : écart de 0,01 à 0,03 % sur les totaux (L4).
-    - **Niveau national uniquement** : pas de détail par État (L6).
-    - **Éducation** : analyse limitée à 2016-2024, période où tous les États utilisent le certificat de 2003. Avant, les certificats de 1989 et de 2003 ne sont pas comparables et la couverture est partielle (L9).
-    - **Pas de catégorie socioprofessionnelle** dans CDC WONDER (L10). Les niveaux d'éducation sont regroupés en 4 groupes (docs/06_education_harmonisation.md).
+                    - **Concept d'âge** : `{concept}` (âge au dernier anniversaire, d'après la définition CDC/NCHS).
+                    - **Contrôles** : données validées avant chargement (Great Expectations) puis après transformation (tests dbt).
+                    - **Années avec données incomplètes** : {", ".join(str(a) for a in annees_incompletes) or "aucune"} (tranche 50 ans et plus absente, L7).
+                    - **Rupture 2006-2007** : changement de base WONDER et des règles d'imputation de l'âge (L5, L8), non quantifié.
+                    - **Cellules supprimées** : écart de 0,01 à 0,03 % sur les totaux (L4).
+                    - **Niveau national uniquement** : pas de détail par État (L6).
+                    - **Éducation** : analyse limitée à 2016-2024, période où tous les États utilisent le certificat de 2003. Avant, les certificats de 1989 et de 2003 ne sont pas comparables et la couverture est partielle (L9).
+                    - **Pas de catégorie socioprofessionnelle** dans CDC WONDER (L10). Les niveaux d'éducation sont regroupés en 4 groupes (docs/06_education_harmonisation.md).
             """
         )
+    )
 
     with st.expander("Données"):
         st.dataframe(ind, width="stretch", hide_index=True)
