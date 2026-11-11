@@ -5,7 +5,7 @@ construit sur les statistiques de naissances du CDC (CDC WONDER), avec la gouver
 
 ## Dashboard en ligne
 
-Dashboard en ligne : (lien à ajouter après le déploiement)
+Dashboard HTML en ligne : https://nnarou-hash.github.io/maternite-tardive/\n\nVersion Streamlit : `streamlit run app/dashboard.py` (application interactive exécutable en local ; le dépôt ne contient pas encore d'URL Streamlit Community Cloud publiée).
 
 Le dashboard publié lit un instantané des tables dbt (`app/data/*.csv`), exporté depuis BigQuery avec
 `python scripts/05_exporter_dashboard_csv.py`. En local avec BigQuery : `export GCP_PROJECT=...` puis `streamlit run app/dashboard.py`.
